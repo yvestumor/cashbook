@@ -80,6 +80,6 @@ public class CashBookListByMonthController extends HttpServlet {
 		
 	
 		// 3) 뷰 포워딩
-		request.getRequestDispatcher("WEB-INF/view/CashBookListByMonth.jsp").forward(request,response);	
+		request.getRequestDispatcher("WEB-INF/view/cashBookListByMonth.jsp").forward(request,response);	
 		}
 }
