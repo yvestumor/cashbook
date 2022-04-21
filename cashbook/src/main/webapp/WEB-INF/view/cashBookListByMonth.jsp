@@ -31,10 +31,13 @@
 		System.out.println(m + " <-- m CashBookListByMonth.jsp");
 		System.out.println("----------------------------------------");
 	%>
+	<div>
+		<a class="btn btn-primary" href="<%=request.getContextPath()%>/TagController">Tags</a>
+	</div>
 	<h2><%=y%>년 <%=m%>월의 가계부</h2>
 	<div>
-		<a href="<%=request.getContextPath()%>/CashBookListByMonthController?y=<%=y%>&m=<%=m-1%>">이전</a>
-		<a href="<%=request.getContextPath()%>/CashBookListByMonthController?y=<%=y%>&m=<%=m+1%>">다음</a>
+		<a  class="btn btn-light" href="<%=request.getContextPath()%>/CashBookListByMonthController?y=<%=y%>&m=<%=m-1%>">이전</a>
+		<a class="btn btn-light" href="<%=request.getContextPath()%>/CashBookListByMonthController?y=<%=y%>&m=<%=m+1%>">다음</a>
 	</div>
 	<!-- 
 		1) 이번달 1일의 요일	firstDayYoil -> startBlank -> 일 0 ,월 1, 화 2, ...토 6
