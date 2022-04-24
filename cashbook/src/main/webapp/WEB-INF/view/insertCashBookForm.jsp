@@ -7,6 +7,10 @@
 <title>InsertCashBook</title>
 </head>
 <body>
+<div>
+		<%=session.getAttribute("sessionMemberId") %>님 반갑습니다.
+		<a href="<%=request.getContextPath()%>/LogoutController">로그아웃</a>
+	</div>
 <form action="<%=request.getContextPath()%>/InsertCashBookController" method="post">
 	<table border="1">
 		<tr>

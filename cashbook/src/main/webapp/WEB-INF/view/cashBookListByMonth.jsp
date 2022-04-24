@@ -32,6 +32,10 @@
 		System.out.println("----------------------------------------");
 	%>
 	<div>
+		<%=session.getAttribute("sessionMemberId") %>님 반갑습니다.
+		<a href="<%=request.getContextPath()%>/LogoutController">로그아웃</a>
+	</div>
+	<div>
 		<a class="btn btn-primary" href="<%=request.getContextPath()%>/TagController">Tags</a>
 	</div>
 	<h2><%=y%>년 <%=m%>월의 가계부</h2>

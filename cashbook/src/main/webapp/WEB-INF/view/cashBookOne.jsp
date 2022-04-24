@@ -11,6 +11,10 @@
 <title>CashbookOne</title>
 </head>
 <body>
+<div>
+		<%=session.getAttribute("sessionMemberId") %>님 반갑습니다.
+		<a href="<%=request.getContextPath()%>/LogoutController">로그아웃</a>
+	</div>
 <h1>상세보기</h1>
 	<table border ="1">
 		<%

@@ -8,7 +8,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 </head>
 <body>
+
 <div class="container">
+<div>
+		<%=session.getAttribute("sessionMemberId") %>님 반갑습니다.
+		<a href="<%=request.getContextPath()%>/LogoutController">로그아웃</a>
+	</div>
 <h1 class="display-1"><%=request.getAttribute("tag")%>의 리스트</h1>
 	<%
 	List<Map<String, Object>> list = (List<Map<String, Object>>)request.getAttribute("list");
