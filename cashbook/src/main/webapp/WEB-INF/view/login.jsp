@@ -7,6 +7,9 @@
 </head>
 <body>
 <h1>로그인</h1>
+<div>
+	<a href="<%=request.getContextPath()%>/InsertMemberController">회원가입</a>
+</div>
 <form action="<%=request.getContextPath()%>/LoginController" method="post">
 	<table border="1">
 		<tr>
