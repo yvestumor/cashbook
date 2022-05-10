@@ -13,21 +13,21 @@ import vo.Member;
 
 public class MemberDao {
 	// 회원가입
-	public void insertMemberByIdPw(String memberId, String memberPw) {
+	public void insertMemberByIdPw (String memberId, String memberPw) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
+		String sql = "INSERT INTO member (member_id, member_pw,create_date) values"
+				+ " (?, PASSWORD(?) ,NOW())";
 		try {
-			String sql = "INSERT INTO member(member_id memberId,member_pw memberPw,create_date createDate) values {"
-					+ "(?,PASSWORD(?),NOW()) ";
 			  Class.forName("org.mariadb.jdbc.Driver");
 		      conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 		      stmt = conn.prepareStatement(sql);
-		      stmt.setString(1,memberId);
-		      stmt.setString(2,memberPw);
+		      stmt.setString(1, memberId);
+		      stmt.setString(2, memberPw);
 		      
 		      int row  = stmt.executeUpdate();
-		      if (row ==1) {
+		      if (row == 1) {
 		    	  System.out.println("회원가입성공");
 		      } else {
 		    	  System.out.println("회원가입실패");
@@ -110,7 +110,6 @@ public class MemberDao {
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
-				// TODO Auto-generaed catch block
 				e1.printStackTrace();
 			}
 			e.printStackTrace();

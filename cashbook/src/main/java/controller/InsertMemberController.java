@@ -25,7 +25,7 @@ public class InsertMemberController extends HttpServlet {
 		
 		MemberDao memberDao = new MemberDao(); //member dao호출
 		memberDao.insertMemberByIdPw(memberId, memberPw);
-		request.getRequestDispatcher("/WEB-INF/view/LoginController").forward(request,response);
+		response.sendRedirect(request.getContextPath() + "/LoginController");
 		
 	}
 

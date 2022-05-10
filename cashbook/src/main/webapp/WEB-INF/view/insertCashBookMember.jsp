@@ -75,20 +75,21 @@
 		}
 	});
 	
-	// 3) signup 버튼 클릭햇을때 유효성 검사
-	document.querySelector('#signup').addEventListener('click', function() { //signup 버튼을 클릭했을때 기능 
-		if(document.querySelector.('#id').value.length < 4) {
-			
-			document.querySelector('idHelper').innerHTML = 'id는 4자 이상 입력해주세요';
+	
+	// 3) 버튼을 클릭했을 때 유효성 검사 
+	document.querySelector('#signup').addEventListener('click', function(){
+		
+		if(document.querySelector('#id').value.length < 4) {
+			document.querySelector('#idHelper').innerHTML = 'id는 4자 이상 입력해주세요';
 			document.querySelector('#id').focus();
-		} else if(document.querySelector('#pw').value.length < 4) { 
-			
-			document.querySelector('idHelper').innerHTML = '';
-			document.querySelector('pwHelper').innerHTML = 'password는 4자 이상입력해주세요';
+		} else if(document.querySelector('#pw').value.length < 4) {
+			document.querySelector('#idHelper').innerHTML = '';
+			document.querySelector('#pwHelper').innerHTML = 'password는 4자 이상입력해주세요';
 			document.querySelector('#pw').focus();
 		} else {
-			document.querySelector('#signupForm').submit();		
-			}
+			document.querySelector('#signupForm').submit();
+		}
 	});
+	
 </script>
 </html>
