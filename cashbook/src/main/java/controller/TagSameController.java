@@ -19,7 +19,7 @@ public class TagSameController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tag = request.getParameter("tag");
 			
-		System.out.println(tag +" <--tag TagSameController");
+		System.out.println(tag +" <--tag TagSameController.doGet()");
 		
 		HashtagDao hashtagDao = new HashtagDao();
 		List<Map<String, Object>> list = hashtagDao.selectSameTagRankList(tag);

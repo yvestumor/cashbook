@@ -123,23 +123,29 @@ public class MemberDao {
 	
 	}
 	// 회원정보 조회
-	public Member selectMemberOne(String sessionMemberId) {
-		Member m = null;
+	public List<Member> selectMemberOne(String sessionMemberId) {
+		List<Member> list = new ArrayList<Member>();
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT member_id memberId, member_pw memberPw, create_date createDate FROM member WHERE member_id = ? ";
+		String sql = "SELECT member_id memberId"
+				+ "         ,member_pw memberPw"
+				+ "         ,create_date createDate "
+				+ "     FROM member "
+		            + "WHERE member_id = ? ";
 		
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			 conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 	         stmt = conn.prepareStatement(sql);
+	         stmt.setString(1, sessionMemberId);
 	         rs = stmt.executeQuery();
 	         if (rs.next()) {
-	        	 m = new Member();
+	        	Member m = new Member();
 	        	 m.setMemberId(rs.getString("memberId"));
 	        	 m.setMemberPw(rs.getString("memberPw"));
 	        	 m.setCreateDate(rs.getString("createDate"));
+	        	 list.add(m);
 	         }
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -154,7 +160,7 @@ public class MemberDao {
 		}
 		
 		
-		return m;
+		return list;
 	}
 	
 	// 로그인

@@ -31,8 +31,8 @@ public class LoginController extends HttpServlet {
 	// 로그인 액션
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 로그인 되어있는 멤버라면 리다이렉트
-		String memberId= request.getParameter("memberId");
-		String memberPw= request.getParameter("memberPw");
+		String memberId = request.getParameter("memberId");
+		String memberPw = request.getParameter("memberPw");
 		Member member = new Member();
 		member.setMemberId(memberId);
 		member.setMemberPw(memberPw);

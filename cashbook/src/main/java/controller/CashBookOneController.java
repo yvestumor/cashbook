@@ -23,6 +23,13 @@ public class CashBookOneController extends HttpServlet {
 		
 		System.out.println(cashbookNo +" <-- cashbookNo CashbookOneController");
 		System.out.println("--------------------------------");
+		// 로그인 확인 
+		HttpSession session = request.getSession();
+		String sessionMemberId = (String)session.getAttribute("sessionMemberId");
+		if(sessionMemberId == null) { //로그인 안되어있으면  
+			response.sendRedirect(request.getContextPath() + "/LoginController");
+			return; 
+		}
 		
 		CashbookDao cashbookDao = new CashbookDao();
 		List<Cashbook> list = cashbookDao.selectCashBookOne(cashbookNo);
