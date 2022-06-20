@@ -51,8 +51,8 @@
 			</tr>
 	</table>
 	<div>
-		<a href ="<%=request.getContextPath()%>/DeleteCashBookController?cashbookNo=<%=c.getCashbookNo()%>">삭제</a>
-		<a href ="<%=request.getContextPath()%>/UpdateCashBookController?cashbookNo=<%=c.getCashbookNo()%>">수정</a>
+		<a href ="<%=request.getContextPath()%>/deleteCashBookController?cashbookNo=<%=c.getCashbookNo()%>">삭제</a>
+		<a href ="<%=request.getContextPath()%>/updateCashBookController?cashbookNo=<%=c.getCashbookNo()%>">수정</a>
 	</div>
 		<%
 			}

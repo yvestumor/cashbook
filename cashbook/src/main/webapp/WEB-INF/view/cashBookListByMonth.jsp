@@ -37,6 +37,11 @@
 		<a href="<%=request.getContextPath()%>/UpdateMemberController">회원정보 수정</a>
 	</div>
 	<div>
+		<div>현재접속자 수 : ${currentCount}</div>
+		<div>오늘(${stats.day}) 접속자 수 : ${stats.cnt}</div>
+		<div>총 접속자 수 : ${totalCount}</div>
+	</div>
+	<div>
 		<a class="btn btn-primary" href="<%=request.getContextPath()%>/TagController">Tags</a>
 	</div>
 	<h2><%=y%>년 <%=m%>월의 가계부</h2>

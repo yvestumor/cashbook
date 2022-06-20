@@ -42,8 +42,8 @@ public class UpdateMemberController extends HttpServlet {
 		 System.out.println(sessionMemberId + " <--UpdateMemberController.doPost()");
 		 System.out.println(memberPw + " <-- UpdateMemberController.doPost()");
 		 
+		 
 		MemberDao memberDao = new MemberDao();
-		memberDao.updateMemberPw(sessionMemberId, memberPw);
 		
 	}
 

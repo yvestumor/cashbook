@@ -18,7 +18,6 @@ public class HashtagDao {
 		ResultSet rs = null;
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");	
 			String sql ="";
 			if (kind.equals("") && aDate.equals("") & bDate.equals("")) { //3개다 입력하지 않았을 때
@@ -145,7 +144,6 @@ public class HashtagDao {
 				+ " WHERE t.tag = ?"
 				+ " GROUP BY c.cash_date";
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");	
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, tag);
@@ -194,7 +192,6 @@ public class HashtagDao {
 	               + "            GROUP BY tag) t";
 
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();

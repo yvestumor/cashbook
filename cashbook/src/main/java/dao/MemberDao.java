@@ -20,7 +20,6 @@ public class MemberDao {
 		String sql = "INSERT INTO member (member_id, member_pw,create_date) values"
 				+ " (?, PASSWORD(?) ,NOW())";
 		try {
-			  Class.forName("org.mariadb.jdbc.Driver");
 		      conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 		      stmt = conn.prepareStatement(sql);
 		      stmt.setString(1, memberId);
@@ -54,7 +53,6 @@ public class MemberDao {
 	      ResultSet rs = null;
 		String sql ="Update member SET member_pw = PASSWORD(?) WHERE member_id = ?";
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
 			 conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 	         stmt = conn.prepareStatement(sql);
 	         stmt.setString(1,memberPw);
@@ -91,7 +89,6 @@ public class MemberDao {
 		String memberSql = "DELETE FROM member WHERE member_id = ?"; // member 정보 삭제 
 		
 		try {
-			 Class.forName("org.mariadb.jdbc.Driver");
 	         conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 	         conn.setAutoCommit(false); // 자동커밋 해제
 	         
@@ -135,7 +132,6 @@ public class MemberDao {
 		            + "WHERE member_id = ? ";
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
 			 conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 	         stmt = conn.prepareStatement(sql);
 	         stmt.setString(1, sessionMemberId);
@@ -171,7 +167,6 @@ public class MemberDao {
 	      ResultSet rs = null;
 	      String sql = "SELECT member_id memberId FROM member WHERE member_id=? AND member_pw=PASSWORD(?)";
 	      try {
-	         Class.forName("org.mariadb.jdbc.Driver");
 	         conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 	         stmt = conn.prepareStatement(sql);
 	         stmt.setString(1, member.getMemberId()); 

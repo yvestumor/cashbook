@@ -13,11 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CashbookDao;
+import dao.StatsDao;
+import vo.Stats;
 
 
 @WebServlet("/CashBookListByMonthController")
 public class CashBookListByMonthController extends HttpServlet {
+	private StatsDao statsDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.statsDao = new StatsDao();
 		HttpSession session = request.getSession();
 		String sessionMemberId =(String)session.getAttribute("sessionMemberId");
 		if(sessionMemberId == null) {
@@ -87,6 +91,11 @@ public class CashBookListByMonthController extends HttpServlet {
 		request.setAttribute("y", y);
 		request.setAttribute("m", m);
 		
+		
+		Stats stats = statsDao.selectStatsOneByNow();
+		int totalCount = statsDao.selectStatsTotalCount();
+		request.setAttribute("stats", stats);
+		request.setAttribute("totalCount", totalCount);
 	
 		// 3) 뷰 포워딩
 		request.getRequestDispatcher("WEB-INF/view/cashBookListByMonth.jsp").forward(request,response);	

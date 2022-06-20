@@ -20,7 +20,6 @@ public class CashbookDao {
 		String cSql = "DELETE FROM cashbook where cashbook_no=?"; // cashbook 삭제하는 쿼리문
 		
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 			conn.setAutoCommit(false); // 오토커밋 해제
 			
@@ -62,7 +61,6 @@ public class CashbookDao {
 		ResultSet rs = null;
 		String sql ="SELECT cashbook_no cashbookNo, cash_date cashDate, kind, cash, memo, update_date updateDate, create_date createDate FROM cashbook WHERE cashbook_no =?";
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, cashbookNo);
@@ -98,7 +96,6 @@ public class CashbookDao {
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
 			try {
-				Class.forName("org.mariadb.jdbc.Driver");
 				conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
 				conn.setAutoCommit(false); // 자동커밋을 해제
 				
@@ -170,7 +167,6 @@ public class CashbookDao {
             + "       WHERE YEAR(cash_date) = ? AND MONTH(cash_date) = ?"
             + "       ORDER BY DAY(cash_date) ASC,kind ASC";
       try {
-         Class.forName("org.mariadb.jdbc.Driver");
          conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/cashbook","root","java1234");
          stmt = conn.prepareStatement(sql);
          stmt.setInt(1, y);
